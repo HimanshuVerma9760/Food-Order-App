@@ -14,7 +14,6 @@ export default function Meals() {
         } else {
           console.log("Successful Connection");
           const meals = await response.json();
-          console.log(meals);
           setLoadedMeals(meals);
         }
       } catch (error) {
