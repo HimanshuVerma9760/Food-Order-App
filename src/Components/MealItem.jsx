@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { currencyFormatter } from "./util/formatting";
 import Button from "./util/UI/Button";
+import { CartContext } from "./Store/CartContext";
 export default function MealItem({ meal }) {
+  const { addItem } = useContext(CartContext);
+  function handleAddItem() {
+    addItem(meal);
+  }
   return (
     <>
       <li className="meal-item">
@@ -14,7 +20,7 @@ export default function MealItem({ meal }) {
             <p className="meal-item-description">{meal.description}</p>
           </div>
           <p className="meal-item-actions">
-            <Button>Add to Cart</Button>
+            <Button onClick={handleAddItem}>Add to Cart</Button>
           </p>
         </article>
       </li>
